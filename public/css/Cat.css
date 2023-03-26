@@ -1,0 +1,103 @@
+.createCat
+{
+    margin-top: 30px;
+}
+h1 >a,
+td >a
+{
+    color: inherit;
+    font-family: inherit;
+}
+
+
+.creatbtn
+{
+    /* color: inherit; */
+    /* font-family: inherit; */
+    /* padding: 10px 20px; */
+    /* background-color: ; */
+}
+.creatbtn
+{
+  background-image: linear-gradient(to right bottom ,var(--main-color),var(--brown) );
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 5px 30px;
+  margin:40px 20px 0;
+  transition:  .9s ease-in-out;
+  color: aliceblue;
+}
+.creatbtn:hover
+{
+  background-image: linear-gradient(
+    to right bottom ,
+    var(--brown),
+    var(--main-color) );
+  color: black;
+
+}
+
+a.pro
+{
+    color: var(--sec-color);
+    font-size: 25px;
+    display: inline-block;
+    padding: 5px 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    background-color: var(--bg-color);
+    transition: .5s;
+}
+a.pro:hover
+{
+    background-color: var(--brown);
+    color: var(--text-color);
+
+}
+.contain
+{
+    position: relative;
+    /* display: flex; */
+    /* gap: 10px; */
+    /* align-items: flex-start; */
+}
+
+.asid
+{
+    /* position: fixed; */
+    /* top: 10%; */
+    /* bottom: 10%; */
+    padding:20px 5px ;
+    /* width: 180px; */
+    background-color: #382422;
+    height: 94vh;
+    color: black;
+}
+.asid ul
+{
+    padding-left: 10px;
+}
+.asid .cat > ul
+{
+    margin-top: 20px;
+    width: 100%;
+    border-top: var(--border);
+    border-color: rgba(240, 255, 255, 0.795);
+    padding-top: 10px;
+    margin-left: 5px;
+
+}
+
+.asid .catlinks a
+{
+    display: inline-block;
+    font-size:12px;
+    margin-top: 5px;
+}
+.contain
+ .left
+ {
+    /* padding:0 100px 0  0; */
+    margin: 0 20px 0 0 ;
+ }
