@@ -15,14 +15,15 @@ class ProductsController extends Controller
     public function index()
     {
         $Cats = Categorys::all();
-        $products=Products::all();
-
+        $products=Products::orderBy('created_at')->all();
         return view(
             'Admin.product.index',
             compact('Cats')
         );
         //
     }
+
+
 
     /**
      * Show the form for creating a new resource.

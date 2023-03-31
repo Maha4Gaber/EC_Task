@@ -46,9 +46,9 @@ html { scroll-behavior: smooth; overflow-x: hidden;}
 body,button,input,textarea { font-family: var(--body-font);}
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: .4s;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) ;
+  transition: .4s !important;
 }
 body::-webkit-scrollbar {
   width: 10px;
@@ -75,12 +75,12 @@ ul {
 }
 
 a {
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 25px ;
-  letter-spacing: 2px;
-  color: inherit;
-  transition: .5s;
+  text-decoration: none !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 25px  ;
+  letter-spacing: 2px !important;
+  color: inherit !important;
+  transition: .5s !important;
 }
 a:hover
 {
@@ -150,13 +150,15 @@ img { max-width: 100%; height: auto;}
 
 header
 {
-  position: fixed;
-  top: 0;
-  left: 0;
+  /* position: fixed; */
+  /* top: 0;
+  left: 0; */
+  position: relative;
   width: 100%;
+  height: fit-content;
   border-bottom: var(--border) ;
   background-color: var(--bg-color);
-  z-index: 10;
+  /* z-index: 10; */
 }
 header::before
 {
@@ -186,9 +188,12 @@ header::after
 }
 .links ul{
   display: flex ;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  flex: 1;text-align: left;
+  flex: 1;text-align: center;
+}
+.links ul li a{
+    text-align: center;
 }
 .links img{
   width: 50px ;
@@ -219,9 +224,9 @@ header::after
 
 .home
 {
-  height: 100vh;
+  height: 90vh;
   width: 100%;
-  padding-top: 20%;
+  /* padding-top: 20%; */
   display: flex;
   justify-content: space-between;
 }
@@ -454,7 +459,7 @@ header::after
 
 .footer
 {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     padding: 20px 50px ;
     border-top: var(--border);
     display: flex;
@@ -530,3 +535,11 @@ header::after
         height: 120px ;
     }
   }
+button.loguot{
+    background-image: linear-gradient(to right bottom ,var(--main-color),var(--brown) );
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 18px;
+
+}

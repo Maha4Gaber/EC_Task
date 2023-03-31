@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductsController;
 // use App\Models\Categoris;
 use App\Models\Categorys;
 use App\Models\Products;
+use Illuminate\Support\Facades\Auth;
 // use App\Models\Products;
 use Illuminate\Support\Facades\Route;
 
@@ -22,23 +23,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $Cats = Categorys::all();
-    $products=Products::all();
+    $products = Products::orderBy('created_at','desc')->offset(0)->limit(9)->get();
 
     return view(
         'welcome',
         compact('Cats','products')
     );;
 });
-Route::get('/admin', function () {
-    $Cats = Categorys::all();
-    $products=Products::all();
 
-    return view(
-        'Admin.index',
-        compact('Cats','products')
-    );;
-});
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
+    function(){
 
+        Route::resource('category', CategorysController::class);
+        Route::resource('products', ProductsController::class);
+
+        Route::get('/dashbourd', function () {
+            $Cats = Categorys::all();
+            $products = Products::all();
+
+            return view(
+                'Admin.index',
+                compact('Cats', 'products')
+            );;
+        });
+    }
+);
 
 Route::resource('category', CategorysController::class);
 Route::resource('products', ProductsController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

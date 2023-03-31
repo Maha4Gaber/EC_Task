@@ -1,8 +1,8 @@
-@extends('layout.Header')
+@extends('layouts.app')
 
 @section('content')
 
-<section>
+<section class="pt-5 mt-5">
     <div class="container">
         <div class="home">
             <div class="left ">
@@ -64,15 +64,15 @@
                                 <span>{{$product->price}}$</span>
                             </div>
                             <div class="price">
-                                <span>Price :</span>
+                                <span>Discount :</span>
                                 <span>{{$product->discount}}$</span>
                             </div>
                             <div class="price">
-                                <span>Price :</span>
+                                <span>Quantity :</span>
                                 <span>{{$product->quantity}}$</span>
                             </div>
                             <div class="btns">
-                                <button>More</button>
+                                <button class="loguot">More</button>
                             </div>
                         </div>
                         </div>
