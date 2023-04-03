@@ -17,7 +17,7 @@ class CategorysController extends Controller
         $Cats =Categorys::all();
         return view(
         'Admin.Cat.index', compact('Cats'));
-        
+
         //
     }
 
@@ -59,28 +59,63 @@ class CategorysController extends Controller
         );
         //
     }
+    public function showall( $id)
+    {
+        $cat = Categorys::find($id);
+        $products = Products::all();
+        return view(
+            'User.Cat',
+            compact('cat', 'products')
+        );
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categorys $categorys)
+    public function edit(Categorys $categorys,$id)
     {
+        $Cat = Categorys::findOrFail($id);
+        return view(
+            'Admin.Cat.Update',
+            compact('Cat')
+        );
         //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategorysRequest $request, Categorys $categorys)
+    public function update(UpdateCategorysRequest $request, Categorys $categorys,$id)
     {
+        $Cat = Categorys::findOrFail($id);
+        $Cat->update([
+            'name' => $request->name,
+            'desc' => $request->desc,
+        ]);
+        $Cats = Categorys::all();
+        $products = Products::all();
+
+        return view(
+            'Admin.index',
+            compact('Cats', 'products')
+        );
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categorys $categorys)
+    public function destroy(Categorys $categorys,$id)
     {
+        $Cat = Categorys::findOrFail($id)->delete();
+        $Cats = Categorys::all();
+        $products = Products::all();
+
+        return view(
+            'Admin.index',
+            compact('Cats', 'products')
+        );;
         //
     }
 }

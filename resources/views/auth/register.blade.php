@@ -1,11 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+<div class="container mb-5 mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-black">
+                <div class="card-header">
+                    <h1>{{ __('Register') }}</h1>
+                </div>
+=======
+>>>>>>> Stashed changes
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
+<<<<<<< Updated upstream
+=======
+>>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
+>>>>>>> Stashed changes
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

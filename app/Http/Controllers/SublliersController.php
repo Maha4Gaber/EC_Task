@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoresublliersRequest;
 use App\Http\Requests\UpdatesublliersRequest;
+use App\Models\Categorys;
+use App\Models\Products;
 use App\Models\sublliers;
 
 class SublliersController extends Controller
@@ -13,6 +15,9 @@ class SublliersController extends Controller
      */
     public function index()
     {
+        $subs =sublliers::all();
+        return view(
+        'Admin.Subl.index', compact('subs'));
         //
     }
 
@@ -22,6 +27,7 @@ class SublliersController extends Controller
     public function create()
     {
         //
+        return view('Admin.Subl.Create');
     }
 
     /**
@@ -29,6 +35,14 @@ class SublliersController extends Controller
      */
     public function store(StoresublliersRequest $request)
     {
+        sublliers::create(
+            $request->all()
+        );
+        $subs = sublliers::all();
+        return view(
+            'Admin.Subl.index',
+            compact('subs')
+        );
         //
     }
 
@@ -43,24 +57,50 @@ class SublliersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(sublliers $sublliers)
+    public function edit(sublliers $sublliers,$id)
     {
+        $subl = sublliers::findOrFail($id);
+        return view(
+            'Admin.subl.Update',
+            compact('subl')
+        );
         //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatesublliersRequest $request, sublliers $sublliers)
+    public function update(UpdatesublliersRequest $request, sublliers $sublliers,$id)
     {
+        $subl = sublliers::findOrFail($id);
+        $subl->update([
+            'name' => $request->name,
+            // 'desc' => $request->desc,
+        ]);
+        $subs = sublliers::all();
+        $products = Products::all();
+
+        return view(
+            'Admin.index',
+            compact('subs', 'products')
+        );
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(sublliers $sublliers)
+    public function destroy(sublliers $sublliers,$id)
     {
+        $subl = sublliers::findOrFail($id)->delete();
+        $subls = sublliers::all();
+        $Cats = Categorys::all();
+        $products = Products::all();
+
+        return view(
+            'Admin.index',
+            compact('Cats', 'products','subls')
+        );;
         //
     }
 }

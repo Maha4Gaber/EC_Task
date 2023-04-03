@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use SebastianBergmann\Type\TrueType;
 
 class UpdateProductsRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateProductsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return True;
     }
 
     /**
@@ -22,6 +23,38 @@ class UpdateProductsRequest extends FormRequest
     public function rules(): array
     {
         return [
+
+            'categori_id' => [
+                'required'
+            ],
+            'name' => [
+                'required',
+                'string'
+            ],
+            'desc' => [
+                'required',
+                'string'
+            ],
+            'img' => [
+                'required',
+                // 'mimes:jpg,jpeg,png'
+            ],
+            'price' => [
+                'required',
+                'integer'
+            ],
+            'discount' => [
+                'required',
+                'integer'
+            ],
+            'quantity' => [
+                'required',
+                'integer'
+            ],
+            'offer' => [
+                'required',
+                'string'
+            ],
             //
         ];
     }

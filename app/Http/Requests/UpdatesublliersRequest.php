@@ -11,7 +11,7 @@ class UpdatesublliersRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,6 +22,14 @@ class UpdatesublliersRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name'=>[
+                'required',
+                'string'
+            ],
+            'desc' => [
+                'required',
+                'string'
+            ]
             //
         ];
     }

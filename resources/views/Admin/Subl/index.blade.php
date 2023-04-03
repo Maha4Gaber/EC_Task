@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-6">
                     <h1 class="">
-                        Categories
+                        Sublliers 
                     </h1>
                 </div>
                 <div class="col-6">
-                    <a href="{{ url('category/create') }}" class="creatbtn">Create Category</a>
+                    <a href="{{ url('subllier/create') }}" class="creatbtn">Create Subllier</a>
 
                 </div>
                 <div class="col-12 mt-5">
@@ -24,13 +24,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($Cats as $cat)
+                            @foreach ($subs as $sub)
                                 <tr>
-                                    <th scope="row">{{ $cat->id }}</th>
-                                    <td><a href="{{ route('category.show', $cat->id) }}">{{ $cat->name }}</a></td>
+                                    <th scope="row">{{ $sub->id }}</th>
+                                    <td><a href="{{ route('subllier.show', $sub->id) }}">{{ $sub->name }}</a></td>
                                     <td class="pro">
-                                        <a class="" href="{{ route('category.edit', $cat->id) }}">Edit</a>
-                                        <form class="" action="{{ route('category.destroy', $cat->id) }}"
+                                        <a class="" href="{{ route('subllier.edit', $sub->id) }}">Edit</a>
+                                        <form class="" action="{{ route('subllier.destroy', $sub->id) }}"
                                             method="POST">
                                             @method('delete')
                                             @csrf

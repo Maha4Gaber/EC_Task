@@ -6,6 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+use Illuminate\Support\Facades\Auth;
+=======
+>>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
+>>>>>>> Stashed changes
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +36,24 @@ class RegisterController extends Controller
      *
      * @var string
      */
+<<<<<<< Updated upstream
     protected $redirectTo = RouteServiceProvider::HOME;
+=======
+<<<<<<< HEAD
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated()
+    {
+        if (Auth::user()->role_as == '1') {
+            return redirect('/')->with('status', 'welcome ');
+        } else {
+            return redirect('/')->with('status', 'not allwed ');
+            # code...
+        }
+    }
+=======
+    protected $redirectTo = RouteServiceProvider::HOME;
+>>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
+>>>>>>> Stashed changes
 
     /**
      * Create a new controller instance.
@@ -52,7 +76,15 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+<<<<<<< Updated upstream
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+=======
+<<<<<<< HEAD
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+=======
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+>>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
+>>>>>>> Stashed changes
         ]);
     }
 

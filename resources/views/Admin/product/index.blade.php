@@ -24,6 +24,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">price</th>
                             <th scope="col">discount</th>
+                            <th scope="col">Propertis</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,14 @@
                                 <td>{{$product->desc}}</td>
                                 <td>{{$product->price}}</td>
                                 <td>{{$product->discount}}</td>
+                                <td class="pro">
+                                    <a class="" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                                    <form class="" action="{{ route('products.destroy',$product->id) }}" method="POST">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="" type="submit" href="">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
 
