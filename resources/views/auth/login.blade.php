@@ -2,26 +2,13 @@
 
 @section('content')
     <div class="container mt-5 mb-5">
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+
         <div class="row justify-content-center mb-5">
             <div class="col-md-8 mb-5">
                 <div class="card bg-black mt-5 mb-5">
                     <div class="card-header">
                         <h1>{{ __('Login') }}</h1>
                     </div>
-=======
->>>>>>> Stashed changes
-        <div class="row justify-content-center mt-5 mb-5">
-            <div class="col-md-8 mt-5 mb-5">
-                <div class="card mt-5 mb-5">
-                    <div class="card-header">{{ __('Login') }}</div>
-<<<<<<< Updated upstream
-=======
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
-
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -80,10 +67,6 @@
                                     </button>
 
                                     @if (Route::has('password.request'))
-<<<<<<< Updated upstream
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-=======
-<<<<<<< HEAD
                                         <a class="btn   "
                                         style="
                                             font-size:12px;
@@ -91,10 +74,7 @@
                                             background-color: rgb(77, 48, 48);
                                         "
                                          href="{{ route('password.request') }}">
-=======
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
+
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif

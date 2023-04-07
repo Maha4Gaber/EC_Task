@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+
 use App\Models\Categorys;
 use App\Models\Products;
 use App\Models\sublliers;
-=======
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -34,9 +29,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+
     public function search(Request $request)
     {
         $Cats = Categorys::all();
@@ -54,7 +47,7 @@ class HomeController extends Controller
             $products = Products::all();
             $allcat = Categorys::all();
             $allsub = sublliers::all();
-            return 
+            return
             view(
                 'home',
                 compact( 'products')
@@ -64,7 +57,7 @@ class HomeController extends Controller
         else if($request->name && !$request->cat && !$request->sup)
         {
             $products = Products::where('name',  $request->name)->get();
-            return 
+            return
             view(
                 'home',
                 compact( 'products')
@@ -75,7 +68,7 @@ class HomeController extends Controller
             $allproduct = Products::where('name',  $request->name)->get();
             $cat = Categorys::where('name', $request->cat)->first();
             $products = Products::where('name',  $request->name)->where('categori_id',$cat->id)->get();
-            return 
+            return
             view(
                 'home',
                 compact( 'products')
@@ -87,7 +80,7 @@ class HomeController extends Controller
             $cat = Categorys::where('name', $request->cat)->first();
             $sup = sublliers::where('name', $request->subpllier)->first();
             $products = Products::where('name',  $request->name)->where('categori_id',$cat->id)->get();
-            return 
+            return
             view(
                 'home',
                 compact( 'products')
@@ -99,14 +92,11 @@ class HomeController extends Controller
             $cat = Categorys::where('name', $request->cat)->first();
             // $sup = sublliers::where('name', $request->subpllier)->first();
             $products = Products::where('categori_id',$cat->id)->get();
-            return 
+            return
             view(
                 'home',
                 compact( 'products')
             );
         }
     }
-=======
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
 }

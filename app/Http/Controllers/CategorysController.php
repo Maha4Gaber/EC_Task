@@ -62,7 +62,7 @@ class CategorysController extends Controller
     public function showall( $id)
     {
         $cat = Categorys::find($id);
-        $products = Products::all();
+        $products = Products::where('categori_id',$cat->id)->orderBy('created_at', 'desc')->offset(0)->limit(9)->get();
         return view(
             'User.Cat',
             compact('cat', 'products')

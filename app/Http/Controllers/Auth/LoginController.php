@@ -28,29 +28,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-<<<<<<< Updated upstream
     // protected $redirectTo = RouteServiceProvider::HOME;
-=======
-<<<<<<< HEAD
-    protected $redirectTo = RouteServiceProvider::HOME;
-=======
-    // protected $redirectTo = RouteServiceProvider::HOME;
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
+
     protected function authenticated()
     {
         if (Auth::user()->role_as=='1') {
             return redirect('/')->with('status', 'welcome ');
         } else {
-<<<<<<< Updated upstream
             return redirect('/')->with('status', 'welcome ');
-=======
-<<<<<<< HEAD
             return redirect('/')->with('status', 'not allwed ');
-=======
-            return redirect('/')->with('status', 'welcome ');
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
             # code...
         }
 

@@ -16,16 +16,11 @@ class ProductsController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         // $Cats = Categorys::all();
         $products = Products::orderBy('created_at', 'desc')->offset(0)->limit(9)->get();
-=======
         $Cats = Categorys::all();
-        $products=Products::orderBy('created_at')->all();
-<<<<<<< Updated upstream
-=======
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
+        
+        // $products=Products::orderBy('created_at')->all();
         return view(
             'Admin.product.index',
             compact('products')

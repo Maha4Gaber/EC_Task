@@ -35,32 +35,21 @@
 
                 <div class="links">
                     <ul>
-                        <li class="first"> <i class="fa fa-list"></i> <a >
-                            {{-- href="/category" --}}
-                            Categories </a></li>
+                        <li class="first">
+                            <i class="fa fa-list"></i>
+                             <a >   Categories </a></li>
                         <li><a href="#">Profile </a></li>
                         <li><a href="#">Cart </a></li>
 
-                    <li class="logo"> <a class="navbar-brand" href="{{ url('/') }}">
-                            {{-- {{ config('app.name', 'Laravel') }} --}}
+                    <li class="logo">
+                        <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="../img/logo.png" alt="">
-                        </a> </li>
-<<<<<<< Updated upstream
-
-
-                        <li class="last">
-=======
-<<<<<<< HEAD
+                        </a>
+                    </li>
                         <li><a href="#">Profile </a></li>
 
 
 
-=======
-
-
-                        <li class="last">
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
                             {{-- {{ $login=1 }} --}}
                             {{-- @if ($login) --}}
                             @guest
@@ -82,15 +71,7 @@
                                                 <button class="loguot" onclick="event.preventDefault();
                                                     document.getElementById('dashbourd').submit();">Dashbourd</button>
                                             </div>
-<<<<<<< Updated upstream
                                         <form id="dashbourd" action="{{ url('admin/dashbourd') }}" method="get"
-=======
-<<<<<<< HEAD
-                                        <form id="dashbourd" action="{{ url('dashbourd') }}" method="get"
-=======
-                                        <form id="dashbourd" action="{{ url('admin/dashbourd') }}" method="get"
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
                                             class="d-none">
                                             @csrf
                                         </form>
@@ -121,14 +102,7 @@
                         {{-- @else
                         <a href="#">Logout </a>
                             @endif --}}
-<<<<<<< Updated upstream
                         </li>
-=======
-<<<<<<< HEAD
-=======
-                        </li>
->>>>>>> ef385a467262da1d6ba7bb5bcf45eaf46516315a
->>>>>>> Stashed changes
                     </ul>
                 </div>
             </nav>
