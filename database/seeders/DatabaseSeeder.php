@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Categorys;
+use App\Models\Products;
+use App\Models\sublliers;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +22,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Categorys::factory(4)->create();
+        // sublliers::factory(4)->create();
+        Products::factory(50)->create();
         $this->call([
             UserSeeder::class
         ]);

@@ -36,22 +36,22 @@
         <div class="row">
         <form action="{{ url('/searchpage') }}" method="get">
             @csrf
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <label for="neme" class=" col-form-label">Name</label>
-                    <input type="text" name="name" class=" form-control " id="">
+            <div class="row mt-5">
+                <div class="col-lg-3 col-md-6 col-sm-12 ser mt-5">
+                    <input type="text" placeholder="Enter product Name" name="name" class="  " id="">
+                    <label for="neme" class=" ">Name</label>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <label for="cat" class=" col-form-label">Categoriy</label>
-                    <input type="text" name="cat" class=" form-control " id="">
+                <div class="col-lg-3  mt-5 col-md-6 col-sm-12 ser" >
+                    <input type="text" name="cat" placeholder="Enter category Name" class="  " id="">
+                    <label for="cat" class=" ">Categoriy</label>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <label for="subpllier" class=" col-form-label">Subllier</label>
-                    <input type="text" name="subpllier" class=" form-control " id="">
+                <div class="col-lg-3  mt-5 col-md-6 col-sm-12 ser" >
+                    <input type="text" name="subpllier" placeholder="Enter subpllier Name" class="  " id="">
+                    <label for="subpllier" class=" ">Subllier</label>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <label for="subpllier" class=" col-form-label"></label>
-                    <input type="submit" value="Search" class=" form-control mt-2" id="">
+
+                <div class="col-lg-2 mt-5  submit col-md-5 col-sm-12 " >
+                    <input type="submit" value="Search" class=" " id="">
                 </div>
             </div>
         </form>
@@ -70,14 +70,18 @@
                 <div class="boxs">
                     <div class="row">
                         @foreach ($products as $product)
-                            <div class="col-lg-3 col-md-4 col-6 ">
+                            <div class="col-lg-3 col-md-4 col-12 ">
                                 <div class="box">
                                     <div class="head d-flex ">
-                                        <h5>{{ $cat->name }}</h5>
-                                        <h5><i class="fa fa-list " aria-hidden="true"></i></h5>
+                                        <div class="dots">
+                                            <i class="fa fa-dot-circle" aria-hidden="true"></i>
+                                            <i class="active fa fa-dot-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-dot-circle" aria-hidden="true"></i>
+                                        </div>
+                                        <i class="fa fa-list " aria-hidden="true"></i>
                                     </div>
                                     <div class="image">
-                                        <img src="./img/Products/{{ $product->img }}" alt="">
+                                            <img src="../img/Products/{{ $product->img }}.jpg" alt="{{ $product->img }}">
                                     </div>
                                     <div class="details">
                                         <div class="price">

@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -49,7 +49,7 @@ class HomeController extends Controller
             $allsub = sublliers::all();
             return
             view(
-                'home',
+                'User.Search',
                 compact( 'products')
             );
 
@@ -59,7 +59,7 @@ class HomeController extends Controller
             $products = Products::where('name',  $request->name)->get();
             return
             view(
-                'home',
+                'User.Search',
                 compact( 'products')
             );
         }
@@ -70,7 +70,7 @@ class HomeController extends Controller
             $products = Products::where('name',  $request->name)->where('categori_id',$cat->id)->get();
             return
             view(
-                'home',
+                'User.Search',
                 compact( 'products')
             );
         }
@@ -82,7 +82,7 @@ class HomeController extends Controller
             $products = Products::where('name',  $request->name)->where('categori_id',$cat->id)->get();
             return
             view(
-                'home',
+                'User.Search',
                 compact( 'products')
             );
         }
@@ -94,7 +94,7 @@ class HomeController extends Controller
             $products = Products::where('categori_id',$cat->id)->get();
             return
             view(
-                'home',
+                'User.Search',
                 compact( 'products')
             );
         }

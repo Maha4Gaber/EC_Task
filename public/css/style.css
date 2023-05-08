@@ -181,7 +181,7 @@ header::after
   top: 0;
   width: 1px;
   height: 100%;
-  right:  calc(100% / 7 + 50px);
+  right:  calc(100% / 7 + 30px);
   border: var(--border);
 }
 .links
@@ -301,7 +301,7 @@ ul.catName li a{
   background-color: #e0988c;
   width: 300px;
   height: 300px;
-  margin: 20% auto;
+  margin: 5% auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -396,15 +396,35 @@ ul.catName li a{
 }
 .box .head
 {
-    padding: 10px 10px 5px ;
     justify-content: space-between;
+    align-items: center;
     border-bottom: var(--border);
+    overflow: hidden;
+    padding: 0;
+}
+.box .head >i{
+    border-left: var(--border);
+    padding: 8px 10px  ;
+    /* padding: 2px 10px; */
+}
+.box .head .dots {
+    padding: 7px 10px  ;
+}
+.box .head .dots i{
+    font-size: 10px;
+    padding-right: 4px;
+    color: #64413D ;
+    /* scale: 1.5; */
+}
+.box .head .dots i.active
+{
+    color: var(--main-color);
 }
 .box .image
 {
   width: 100%;
   /* background: url(../../assets/imgs/Products/p1.png); */
-  height: 150px;
+  height: 200px;
   overflow: hidden;
   /* box-shadow: 0px 5px 5px 0 #e0988c; */
   transition: scale .5s ease-in-out;
@@ -447,6 +467,39 @@ ul.catName li a{
 }
 
 
+.ser{
+    /* background-color: #E0988C; */
+    border: var(--border);
+    color: var(--main-color);
+    padding: 10px ;
+    margin:  5px;
+}
+.ser input
+{
+    width: 80%;
+    background-color: transparent;
+    border:none;
+}
+.ser input:focus
+{
+    outline: none;
+}
+.submit
+{
+    color: var(--main-color);
+    /* padding: 10px ; */
+    margin:  5px;
+}
+.submit input{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    background-color: #64413D;
+}
+.ser label
+{
+    color: var(--main-color);
+}
 /* For large devices */
 @media (max-width: 991px) {
   /* .b */

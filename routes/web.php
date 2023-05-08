@@ -94,7 +94,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
 
 
 Route::get('/categoryid/{id}', [App\Http\Controllers\CategorysController::class, 'showall'])->name( 'categoryid');
-Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+// Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 Route::get('/searchpage', [App\Http\Controllers\HomeController::class, 'searchpage'])->name('searchpage');
 Route::resource('category', CategorysController::class);
 Route::resource('products', ProductsController::class);

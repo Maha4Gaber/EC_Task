@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Categorys;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,18 @@ class ProductsFactory extends Factory
     public function definition(): array
     {
         return [
+            'name' => fake()->name(),
+            'desc' => fake()->sentence(),
+            'img' => fake()->numberBetween(1,10),
+            'price' => fake()->numberBetween(30,300),
+            'discount' => fake()->numberBetween(3,10),
+            'quantity' => fake()->numberBetween(1,20),
+            'offer' => fake()->sentence(),
+            'categori_id' => function () {
+                    return Categorys::all()->random();
+                }
+
+                //
             //
         ];
     }
