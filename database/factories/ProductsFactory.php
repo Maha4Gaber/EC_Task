@@ -20,8 +20,8 @@ class ProductsFactory extends Factory
         return [
             'name' => fake()->name(),
             'desc' => fake()->sentence(),
-            'img' => fake()->numberBetween(1,10),
-            'price' => fake()->numberBetween(30,300),
+            'img' => fake()->numberBetween(20,46),
+            'price' => fake()->numberBetween(100,600),
             'discount' => fake()->numberBetween(3,10),
             'quantity' => fake()->numberBetween(1,20),
             'offer' => fake()->sentence(),
