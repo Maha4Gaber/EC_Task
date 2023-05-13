@@ -81,6 +81,16 @@
                                         <i class="fa fa-list " aria-hidden="true"></i>
                                     </div>
                                     <div class="image">
+                                        <div class="overlay">
+                                                <div class="">
+                                                <button class="loguot" onclick="event.preventDefault();
+                                                    document.getElementById('cart').submit();">Add to cart</button>
+                                            </div>
+                                        <form id="cart" action="{{ url('cart') }}" method="get"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                        </div>
                                             <img src="../img/Products/{{ $product->img }}.jpg" alt="{{ $product->img }}">
                                     </div>
                                     <div class="details">

@@ -7,6 +7,7 @@ use App\Models\Categorys;
 use App\Models\Products;
 use App\Models\sublliers;
 use Illuminate\Http\Request;
+use Cart;
 
 class HomeController extends Controller
 {
@@ -98,5 +99,15 @@ class HomeController extends Controller
                 compact( 'products')
             );
         }
+    }
+    public function cart()
+    {
+        $userId = auth()->user()->id; // or any string represents user identifier
+        Cart::session($userId)->update(456, [
+            'quantity' => 2,
+            'price' => 98.67
+        ]);
+        $items = Cart::getContent();
+        return $items;
     }
 }

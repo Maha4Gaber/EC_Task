@@ -31,6 +31,11 @@ Route::get('/', function () {
         compact('Cats','products')
     );;
 });
+// Route::get('/cart', function () {
+
+
+//     return 'Maha';
+// });
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
     function(){
@@ -101,4 +106,5 @@ Route::resource('products', ProductsController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/cart', [App\Http\Controllers\HomeController::class, 'cart']);
