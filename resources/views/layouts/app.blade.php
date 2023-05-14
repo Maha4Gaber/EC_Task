@@ -39,7 +39,7 @@
                             <i class="fa fa-list"></i>
                              <a >   Categories </a></li>
                         <li><a href="#">Profile </a></li>
-                        <li><a href="#">Cart </a></li>
+                        <li><a class="navbar-brand" href="{{ url('/cart') }}">Cart </a></li>
 
                     <li class="logo">
                         <a class="navbar-brand" href="{{ url('/') }}">

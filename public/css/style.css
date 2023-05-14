@@ -568,7 +568,10 @@ ul.catName li a{
 }
 
 
-
+.cart{
+    display: block;
+    margin: 0 10px;
+}
 
 
 .footer

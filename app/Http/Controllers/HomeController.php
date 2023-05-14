@@ -103,11 +103,19 @@ class HomeController extends Controller
     public function cart()
     {
         $userId = auth()->user()->id; // or any string represents user identifier
-        Cart::session($userId)->update(456, [
-            'quantity' => 2,
-            'price' => 98.67
-        ]);
+        Cart::session($userId)->add(array(
+            'id' => 456, // inique row ID
+            'name' => 'Sample Item',
+            'price' => 67.99,
+            'quantity' => 4,
+            'attributes' => array(),
+            // 'associatedModel' => $Product
+        ));
+        // Cart::session($userId)->update(456, [
+        //     'quantity' => 2,
+        //     'price' => 98.67
+        // ]);
         $items = Cart::getContent();
-        return $items;
+        return view('User.Cart',compact('items'));
     }
 }
