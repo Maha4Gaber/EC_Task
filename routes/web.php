@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategorisController;
+use App\Http\Controllers\CartsController;
 use App\Http\Controllers\CategorysController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SublliersController;
@@ -107,4 +107,4 @@ Route::resource('products', ProductsController::class);
 Auth::routes();
 
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/cart', [App\Http\Controllers\HomeController::class, 'cart']);
+Route::resource('/cart', CartsController::class);

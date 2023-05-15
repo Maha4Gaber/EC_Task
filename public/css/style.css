@@ -569,8 +569,16 @@ ul.catName li a{
 
 
 .cart{
-    display: block;
+    display:inline-block;
+    padding: 0 10px;
+}
+.cart input{
     margin: 0 10px;
+    background-color: #060404;
+    color: whitesmoke;
+    padding: 0px 15px;
+    border: none;
+    font-size: 25px;
 }
 
 

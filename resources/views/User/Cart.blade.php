@@ -13,7 +13,8 @@
             <div class="container my-5">
                 <div class="row justify-content-center ">
                     <div class="col-md">
-                        <table class="table  table-hover table- table-inverse table-responsive">
+                        <form action="" method="post">
+                            <table class="table   table- table-inverse table-responsive">
                             <thead class="thead-inverse">
                                 <tr>
                                     <th scope="col" >name</th>
@@ -28,9 +29,12 @@
                                         <td scope="row"> {{ $item->name }} </td>
                                         <td>
                                             <form class="cart" action="" method="post">
+                                            </form>
+                                            <form class="cart" action="" method="post">
                                                 <input type="submit" value="+">
                                             </form>
-                                            {{ $item->price }}
+                                            <span>{{ $item->price }}</span>
+
                                             <form class="cart" action="" method="post">
                                                 <input type="submit" value="-">
                                             </form>
@@ -53,6 +57,16 @@
                                     </tr>
                                 </tbody>
                         </table>
+
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <a href="http://" class="">Buy</a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="{{url('/')}}" class="">Home Page</a>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
