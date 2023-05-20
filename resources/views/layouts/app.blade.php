@@ -194,6 +194,7 @@
         </div>
     </footer>
     </div>
+    <script src="{{ asset(url('js/botstrap.js')) }}"></script>
 </body>
 
 </html>

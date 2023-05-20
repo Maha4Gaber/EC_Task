@@ -473,7 +473,7 @@ ul.catName li a{
 }
 .box .image:hover .overlay .loguot
 {
-    display: inline-block;
+    display: block;
     /* width: fit-content; */
 }
 .box .price
@@ -661,11 +661,26 @@ ul.catName li a{
         height: 120px ;
     }
   }
-button.loguot{
+button.loguot {
+    border-radius: 10px;
+background-image: linear-gradient(to right bottom ,var(--main-color),var(--brown) );
+    padding: 5px 10px;
+
+}
+button.loguot a
+{
     background-image: linear-gradient(to right bottom ,var(--main-color),var(--brown) );
     color: var(--text-color);
-    padding: 5px 10px;
     border-radius: 10px;
     font-size: 18px;
 
+}
+.order
+{
+    background-color: var(--bg-color);
+    box-shadow: 1px 1px 15px #64413D;
+}
+
+.modal-dialog {
+    max-width: 800px;
 }

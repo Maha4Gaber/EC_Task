@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\CartItems;
+use App\Models\Carts;
 use App\Models\Categorys;
 use App\Models\Products;
 use App\Models\sublliers;
@@ -28,6 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         return view('home');
     }
 
@@ -100,22 +102,90 @@ class HomeController extends Controller
             );
         }
     }
-    public function cart()
+
+
+
+
+
+    public function getcart()
+    {
+        $userId = auth()->user()->id;
+        $items = Cart::session($userId)->getContent();
+        return view('User.Cart', compact('items'));
+        # code...
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public function addtocart($id)
     {
         $userId = auth()->user()->id; // or any string represents user identifier
-        // Cart::session($userId)->add(array(
-        //     'id' => 456, // inique row ID
-        //     'name' => 'Sample Item',
-        //     'price' => 67.99,
-        //     'quantity' => 4,
-        //     'attributes' => array(),
-        //     // 'associatedModel' => $Product
-        // ));
-        Cart::session($userId)->update(456, [
-            'quantity' => 2,
-            'price' => 98.67
+        $product = Products::findOrFail($id);
+        Cart::session($userId)->add(array(
+            'id' => $product->id, // inique row ID
+            'name' => $product->name,
+            'price' => $product->price,
+            'quantity' => 1,
+        ));
+        Carts::create([
+            'userid' => $userId,
+        ]);
+        CartItems::create([
+            'cartid'=> 1,
+            'productid'=>$id,
+        ]);
+        return CartItems::all();
+        // $items = Cart::getContent();
+        // return view('User.Cart',compact('items'));
+    }
+
+
+
+
+
+    public function increase1($id)
+    {
+        $userId = auth()->user()->id; // or any string represents user identifier
+        Cart::session($userId)->update($id, [
+            'quantity' => +1,
         ]);
         $items = Cart::getContent();
-        return view('User.Cart',compact('items'));
+        return view('User.Cart', compact('items'));
     }
+
+
+
+    public function decrease1($id)
+    {
+        $userId = auth()->user()->id; // or any string represents user identifier
+        $items =   Cart::session($userId)->get($id);
+        if($items->quantity==1)
+        {
+            Cart::session($userId)->remove($id);
+
+        }
+        else
+        {
+            Cart::session($userId)->update($id, [
+                'quantity' => -1,
+            ]);
+        }
+        // return $items;
+        // return ;
+
+        $items = Cart::getContent();
+
+        return view('User.Cart', compact('items'));
+
+        // // return view('User.Cart', compact('items'));
+    }
+
 }

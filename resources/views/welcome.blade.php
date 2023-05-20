@@ -83,13 +83,16 @@
                                     <div class="image">
                                         <div class="overlay">
                                                 <div class="">
-                                                <button class="loguot" onclick="event.preventDefault();
-                                                    document.getElementById('cart').submit();">Add to cart</button>
+                                                <button class="loguot" >
+                                                    <a href="{{ url('addtocart', $product->id) }}">Add to cart</a>
+                                                    </button>
                                             </div>
-                                        <form id="cart" action="{{ url('cart') }}" method="get"
+                                        {{-- <form id="cart" action="{{ route('cart.edit',$product->id) }}" method="get"
                                             class="d-none">
                                             @csrf
-                                        </form>
+                                            {{-- @method('p') --}}
+                                            {{-- <input type="text" value="id" hidden> --}}
+                                        {{-- </form> --}}
                                         </div>
                                             <img src="../img/Products/{{ $product->img }}.jpg" alt="{{ $product->img }}">
                                     </div>

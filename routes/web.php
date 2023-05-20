@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\CategorysController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SublliersController;
 // use App\Models\Categoris;
@@ -100,11 +101,26 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
 
 Route::get('/categoryid/{id}', [App\Http\Controllers\CategorysController::class, 'showall'])->name( 'categoryid');
 // Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+
+
 Route::get('/searchpage', [App\Http\Controllers\HomeController::class, 'searchpage'])->name('searchpage');
+
+
 Route::resource('category', CategorysController::class);
 Route::resource('products', ProductsController::class);
 
 Auth::routes();
 
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/cart', CartsController::class);
+
+
+Route::middleware(['auth'])->group(
+    function () {
+        Route::get('/cart', [App\Http\Controllers\HomeController::class, 'getcart']);
+
+        Route::get('addtocart/{id}', [App\Http\Controllers\HomeController::class, 'addtocart']);
+        Route::get('increase1/{id}', [App\Http\Controllers\HomeController::class, 'increase1']);
+        Route::get('decrease1/{id}', [App\Http\Controllers\HomeController::class, 'decrease1']);
+
+    }
+);
