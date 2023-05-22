@@ -17,9 +17,9 @@ class ProductsController extends Controller
     public function index()
     {
         // $Cats = Categorys::all();
-        $products = Products::orderBy('created_at', 'desc')->offset(0)->limit(9)->get();
+        $products = Products::orderBy('created_at', 'desc')->get();
         $Cats = Categorys::all();
-        
+
         // $products=Products::orderBy('created_at')->all();
         return view(
             'Admin.product.index',

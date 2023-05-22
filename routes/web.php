@@ -112,6 +112,7 @@ Route::resource('products', ProductsController::class);
 Auth::routes();
 
 Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/order', [App\Http\Controllers\HomeController::class, 'order'])->name('order');
 
 
 Route::middleware(['auth'])->group(

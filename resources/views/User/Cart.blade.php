@@ -49,18 +49,6 @@
                                             <td> {{ $item->quantity * $item->price }} </td>
                                         </tr>
                                     @endforeach
-                                    <tr>
-                                        <td scope="row"> Maha </td>
-                                        <td> Maha </td>
-                                        <td> Maha </td>
-                                        <td> Maha </td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row"> Maha </td>
-                                        <td> Maha </td>
-                                        <td> Maha </td>
-                                        <td> Maha </td>
-                                    </tr>
                                 </tbody>
                             </table>
 
@@ -95,25 +83,25 @@
                                                 <div class="row mt-2">
                                                     <div class="col-lg-11 mt-2 ser">
                                                         <label for="neme" class="mx-2 ">Address</label>
-                                                        <input type="text" placeholder="Enter product Name"
+                                                        <input type="text" placeholder="Enter address"
                                                             name="address" class="  " id="">
                                                     </div>
                                                     <div class="col-lg-11  mt-2  ser">
                                                         <label for="Phone" class="mx-2 ">Phone</label>
                                                         <input type="text" name="phone"
-                                                            placeholder="Enter category Name" class="  " id="">
+                                                            placeholder="Enter phone" class="  " id="">
                                                     </div>
                                                     <div class="col-lg-11  mt-2  ser">
                                                         <label for="creditcard" class="mx-2 ">Creditcard</label>
                                                         <input type="text" name="creditcard"
-                                                            placeholder="Enter subpllier Name" class="  "
+                                                            placeholder="Enter creditcard " class="  "
                                                             id="">
                                                     </div>
 
                                                     <div class="col-lg-12 mt-2  submit col-md-5 col-sm-12 ">
                                                         <div class="modal-footer">
-                                                            <button type="button" class="loguot">Save
-                                                                changes</button>
+                                                            <a href="{{url('order')}}" type="button" class="loguot">Save
+                                                                changes</a>
                                                         </div>
                                                         {{-- <input type="submit" value="Search" class=" " id=""> --}}
                                                     </div>

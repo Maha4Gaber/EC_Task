@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CartItems;
 use App\Models\Carts;
 use App\Models\Categorys;
+use App\Models\Credits;
 use App\Models\Products;
 use App\Models\sublliers;
 use Illuminate\Http\Request;
@@ -135,16 +136,16 @@ class HomeController extends Controller
             'price' => $product->price,
             'quantity' => 1,
         ));
-        Carts::create([
-            'userid' => $userId,
-        ]);
-        CartItems::create([
-            'cartid'=> 1,
-            'productid'=>$id,
-        ]);
-        return CartItems::all();
-        // $items = Cart::getContent();
-        // return view('User.Cart',compact('items'));
+        // Carts::create([
+        //     'userid' => $userId,
+        // ]);
+        // CartItems::create([
+        //     'cartid'=> 1,
+        //     'productid'=>$id,
+        // ]);
+        // return CartItems::all();
+        $items = Cart::getContent();
+        return view('User.Cart',compact('items'));
     }
 
 
@@ -157,7 +158,7 @@ class HomeController extends Controller
         Cart::session($userId)->update($id, [
             'quantity' => +1,
         ]);
-        $items = Cart::getContent();
+        $items =   Cart::session($userId)->getContent();
         return view('User.Cart', compact('items'));
     }
 
@@ -187,5 +188,20 @@ class HomeController extends Controller
 
         // // return view('User.Cart', compact('items'));
     }
+
+    // public function order()
+    // {
+    //     $userId = auth()->user()->id; // or any string represents user identifier
+    //     $items =   Cart::session($userId)->getContent();
+    //     foreach ($items as $row) {
+    //         Credits::create([
+    //             'address'=>$row->,
+    //             ''=>$row->,
+    //             ''=>$row->,
+    //         ]);
+    //         # code...
+    //     }
+    //     # code...
+    // }
 
 }
