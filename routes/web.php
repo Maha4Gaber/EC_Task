@@ -25,21 +25,59 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $Cats = Categorys::all();
-    $products = Products::orderBy('created_at','desc')->offset(0)->limit(9)->get();
+    $products = Products::orderBy('created_at', 'desc')->offset(0)->limit(9)->get();
 
     return view(
         'welcome',
-        compact('Cats','products')
+        compact('Cats', 'products')
     );;
 });
-// Route::get('/cart', function () {
 
 
-//     return 'Maha';
-// });
+Route::get('/aboutus', function () {
+    return view(
+        'user.aboutus'
+    );;
+});
+
+
+
+Route::get('/contact', function () {
+    return view(
+        'user.contact'
+    );;
+});
+
+
+
+Route::get('/blogs', function () {
+    $Cats = Categorys::all();
+
+    return view(
+        'user.blogs',
+        compact('Cats')
+    );;
+});
+
+
+
+Route::get('/product/{id}',  function () {
+    return view(
+        'user.Product'
+    );;
+});
+Route::get('/profile', function () {
+    return view(
+        'user.userprofile'
+    );;
+});
+
+
+
+
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
-    function(){
+    function () {
 
         Route::resource('category', CategorysController::class);
         Route::resource('products', ProductsController::class);
@@ -57,7 +95,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
 );
 
 Route::middleware(['auth', 'isAdmin'])->group(
-    function(){
+    function () {
 
         Route::resource('category', CategorysController::class);
         Route::resource('products', ProductsController::class);
@@ -75,12 +113,10 @@ Route::middleware(['auth', 'isAdmin'])->group(
     }
 );
 
-// Route::resource('category', CategorysController::class);
-// Route::resource('products', ProductsController::class);
 
 Auth::routes();
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
-    function(){
+    function () {
 
         Route::resource('category', CategorysController::class);
         Route::resource('products', ProductsController::class);
@@ -99,8 +135,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
 
 
 
-Route::get('/categoryid/{id}', [App\Http\Controllers\CategorysController::class, 'showall'])->name( 'categoryid');
-// Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+Route::get('/categoryid/{id}', [App\Http\Controllers\CategorysController::class, 'showall'])->name('categoryid');
 
 
 Route::get('/searchpage', [App\Http\Controllers\HomeController::class, 'searchpage'])->name('searchpage');
@@ -111,7 +146,7 @@ Route::resource('products', ProductsController::class);
 
 Auth::routes();
 
-Route::get('/home', [ App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/order', [App\Http\Controllers\HomeController::class, 'order'])->name('order');
 
 
@@ -122,6 +157,5 @@ Route::middleware(['auth'])->group(
         Route::get('addtocart/{id}', [App\Http\Controllers\HomeController::class, 'addtocart']);
         Route::get('increase1/{id}', [App\Http\Controllers\HomeController::class, 'increase1']);
         Route::get('decrease1/{id}', [App\Http\Controllers\HomeController::class, 'decrease1']);
-
     }
 );

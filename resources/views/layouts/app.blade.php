@@ -36,27 +36,38 @@
                 <div class="links">
                     <ul>
                         <li class="first">
-                            <i class="fa fa-list"></i>
-                             <a >   Categories </a></li>
-                        <li><a href="#">Profile </a></li>
-                        <li><a class="navbar-brand" href="{{ url('/cart') }}">Cart </a></li>
+                            <a href="{{ url('/blogs') }}">
+                                <i class="fa fa-list " style="margin-right: 0px"></i>
+                                Blogs </a>
+                        </li>
 
-                    <li class="logo">
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="../img/logo.png" alt="">
-                        </a>
-                    </li>
-                        <li><a href="#">Profile </a></li>
+                        <li>
+                            <a href="{{ url('/profile') }}">
+                                <i class="fa-solid fa-user" style="margin-right: 0px"></i>
+                                Profile </a>
+                        </li>
 
+                        <li>
+                            <a class="navbar-brand" href="{{ url('/cart') }}">
+                                <i class="fa fa-cart-shopping"></i>
+                            Cart </a>
+                        </li>
 
-
-                            {{-- {{ $login=1 }} --}}
-                            {{-- @if ($login) --}}
-                            @guest
-                                @if (Route::has('login'))
-                            <li class="">
-                                <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                        <li class="logo">
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                <img src="../img/logo.png" alt="">
+                            </a>
+                        </li>
+                        <li><a class="navbar-brand" href="{{ url('/aboutus') }}">
+                            <i class="fa-regular fa-address-card"></i>
+                            About Us </a></li>
+                        {{-- {{ $login=1 }} --}}
+                        {{-- @if ($login) --}}
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="">
+                                    <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
                             @endif
 
                             @if (Route::has('register'))
@@ -67,14 +78,15 @@
                         @else
                             @if (Auth::user()->role_as == '1')
                                 <li>
-                                        <div class="">
-                                                <button class="loguot" onclick="event.preventDefault();
+                                    <div class="">
+                                        <button class="loguot"
+                                            onclick="event.preventDefault();
                                                     document.getElementById('dashbourd').submit();">Dashbourd</button>
-                                            </div>
-                                        <form id="dashbourd" action="{{ url('admin/dashbourd') }}" method="get"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
+                                    </div>
+                                    <form id="dashbourd" action="{{ url('admin/dashbourd') }}" method="get"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
                                 </li>
                             @else
                             @endif
@@ -108,93 +120,37 @@
             </nav>
         </header>
 
-
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest --}}
-        {{-- </ul>
-                </div>
-            </div>
-        </nav> --}}
-
         <main class=" ">
 
-                        @yield('content')
+            @yield('content')
 
         </main>
         <footer>
-        <div class="footer">
-            <div class="logo">
-                <div class="img">
-                    <img src="../img/logo.png" alt="" />
+            <div class="footer">
+                <div class="logo">
+                    <div class="img">
+                        <img src="../img/logo.png" alt="" />
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Deserunt culpa fugiat, in quod quam incidunt.</p>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Deserunt culpa fugiat, in quod quam incidunt.</p>
+                <div class="links">
+                    <ul>
+                        <li><a href="{{ url('/contact') }}">contact us</a></li>
+                        <li><a href="http://">contact us</a></li>
+                        <li><a href="http://">contact us</a></li>
+                        <li><a href="http://">contact us</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="links">
-                <ul>
-                    <li><a href="http://">contact us</a></li>
-                    <li><a href="http://">contact us</a></li>
-                    <li><a href="http://">contact us</a></li>
-                    <li><a href="http://">contact us</a></li>
-                </ul>
+            <div class="copyrights">
+                <h5>Made with <i class="fa fa-heart "></i> by Maha Gaber Anter</h5>
             </div>
-        </div>
-        <div class="copyrights">
-            <h3>Made with <i class="fa fa-heart "></i>  by Maha Gaber Anter</h3>
-        </div>
-    </footer>
+        </footer>
     </div>
+    <script src="{{ asset(url('js/email.min.js')) }}"></script>
     <script src="{{ asset(url('js/botstrap.js')) }}"></script>
+    <script src="{{ asset(url('js/script.js')) }}"></script>
 </body>
 
 </html>

@@ -47,7 +47,6 @@ class HomeController extends Controller
     public function searchpage(Request $request)
     {
         if (!$request->name && !$request->cat && !$request->sup)  {
-            // $allproduct = 'Maha';
             $products = Products::all();
             $allcat = Categorys::all();
             $allsub = sublliers::all();
@@ -128,22 +127,14 @@ class HomeController extends Controller
 
     public function addtocart($id)
     {
-        $userId = auth()->user()->id; // or any string represents user identifier
+        $userId = auth()->user()->id;
         $product = Products::findOrFail($id);
         Cart::session($userId)->add(array(
-            'id' => $product->id, // inique row ID
+            'id' => $product->id,
             'name' => $product->name,
             'price' => $product->price,
             'quantity' => 1,
         ));
-        // Carts::create([
-        //     'userid' => $userId,
-        // ]);
-        // CartItems::create([
-        //     'cartid'=> 1,
-        //     'productid'=>$id,
-        // ]);
-        // return CartItems::all();
         $items = Cart::getContent();
         return view('User.Cart',compact('items'));
     }
@@ -154,7 +145,7 @@ class HomeController extends Controller
 
     public function increase1($id)
     {
-        $userId = auth()->user()->id; // or any string represents user identifier
+        $userId = auth()->user()->id;
         Cart::session($userId)->update($id, [
             'quantity' => +1,
         ]);
@@ -166,7 +157,7 @@ class HomeController extends Controller
 
     public function decrease1($id)
     {
-        $userId = auth()->user()->id; // or any string represents user identifier
+        $userId = auth()->user()->id;
         $items =   Cart::session($userId)->get($id);
         if($items->quantity==1)
         {
@@ -179,29 +170,8 @@ class HomeController extends Controller
                 'quantity' => -1,
             ]);
         }
-        // return $items;
-        // return ;
-
         $items = Cart::getContent();
-
         return view('User.Cart', compact('items'));
-
-        // // return view('User.Cart', compact('items'));
     }
-
-    // public function order()
-    // {
-    //     $userId = auth()->user()->id; // or any string represents user identifier
-    //     $items =   Cart::session($userId)->getContent();
-    //     foreach ($items as $row) {
-    //         Credits::create([
-    //             'address'=>$row->,
-    //             ''=>$row->,
-    //             ''=>$row->,
-    //         ]);
-    //         # code...
-    //     }
-    //     # code...
-    // }
 
 }

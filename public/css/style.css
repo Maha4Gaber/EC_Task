@@ -1,5 +1,9 @@
 /*=============== Structure ===============
   1- Root Var
+  1- Root Var
+  1- Root Var
+  1- Root Var
+  1- Root Var
 
   - Footer
   12-----------Media---------------
@@ -9,7 +13,7 @@
 */
 /*=============== GOOGLE FONTS ===============*/
 
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Farsan&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Sedgwick+Ave&display=swap');
 
 /*=============== 1- Root Var ===============*/
 :root {
@@ -35,15 +39,16 @@
 * {
   box-sizing: border-box; padding: 0; margin: 0;
   color: #FFF;
+
   /* font-family: 'Courier New', Courier, monospace; */
   /* font-family: 'Lobster Two', cursive; */
   font-family: 'Lobster Two', cursive;
+  font-family: 'Poppins';
 }
 
 
 html { scroll-behavior: smooth; overflow-x: hidden;}
 
-body,button,input,textarea { font-family: var(--body-font);}
 
 body {
   background-color: var(--bg-color) !important;
@@ -97,7 +102,25 @@ i
 {
     color: #E0988C;
 }
-
+.container
+{
+    width: 80%;
+    margin: auto;
+}
+@media only screen and (max-width: 991px) {
+    .container
+    {
+        width: 90%;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .container
+    {
+        width: 95%;
+        margin: auto;
+    }
+}
 .btns button
 {
   background-image: linear-gradient(to right bottom ,var(--main-color),var(--brown) );
@@ -153,8 +176,17 @@ i
   width: 130%;
 }
 
+
+
+
+
+
+
+/* --------------------header -------------------- */
 header
 {
+  font-family: 'Lobster Two', cursive !important;
+
   /* position: fixed; */
   /* top: 0;
   left: 0; */
@@ -244,18 +276,28 @@ header::after
 ul.catName
 {
     width: 100%;
-    border: var(--border);
-    border-top: none;
+    /* border: var(--border); */
+    /* border-top: none; */
     padding:  0;
     display: flex;
     align-items: center;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--bg-color);
 
 }
 ul.catName li
 {
     flex: 1;
-    border-left: var(--border);
+    border: var(--border);
     padding: 12px 15px;
+    transition: .5s ease-in-out;
+}
+ul.catName li:hover
+{
+    background-color: #64413D;
 }
 ul.catName li a{
     font-size: 20px;
@@ -276,7 +318,7 @@ ul.catName li a{
 .home .left p
 {
   font-family: Circe;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 900;
   line-height: 54px;
   letter-spacing: 0.04em;
@@ -320,7 +362,10 @@ ul.catName li a{
   border: var(--border);
   padding-top: 10%;
   font-size: 45px;
-  color: #060404;
+  color: #060404 !important;
+}
+.home .right  .img .cover div i{
+  color: #060404 !important;
 }
 .home .right  .img .cover p{
   flex: 1;
@@ -376,7 +421,7 @@ ul.catName li a{
   /* flex-wrap: wrap; */
   padding-bottom: 50px;
 }
-.box
+.products .box
 {
   /* width: 30%; */
   /* padding: 0 10px; */
@@ -390,11 +435,11 @@ ul.catName li a{
   transition: transform .5s ease-in-out;
   overflow: hidden;
 }
-.box:hover
+.products .box:hover
 {
   transform: translateY(-10px);
 }
-.box .head
+.products .box .head
 {
     justify-content: space-between;
     align-items: center;
@@ -402,25 +447,25 @@ ul.catName li a{
     overflow: hidden;
     padding: 0;
 }
-.box .head >i{
+.products .box .head >i{
     border-left: var(--border);
     padding: 8px 10px  ;
     /* padding: 2px 10px; */
 }
-.box .head .dots {
+.products .box .head .dots {
     padding: 7px 10px  ;
 }
-.box .head .dots i{
+.products .box .head .dots i{
     font-size: 10px;
     padding-right: 4px;
     color: #64413D ;
     /* scale: 1.5; */
 }
-.box .head .dots i.active
+.products .box .head .dots i.active
 {
     color: var(--main-color);
 }
-.box .image
+.products .box .image
 {
   width: 100%;
   /* background: url(../../assets/imgs/Products/p1.png); */
@@ -431,7 +476,7 @@ ul.catName li a{
   position: relative;
 
 }
-.box img
+.products .box img
 {
   width: 100%;
   height: 100%;
@@ -465,18 +510,18 @@ ul.catName li a{
     transform: translate(-50%,-50%);
     transition: .5s ease-in-out;
 }
-.box .image:hover .overlay
+.products .box .image:hover .overlay
 {
     width: 100%;
     height: 100%;
   /* scale: 1.1; */
 }
-.box .image:hover .overlay .loguot
+.products .box .image:hover .overlay .loguot
 {
     display: block;
     /* width: fit-content; */
 }
-.box .price
+.products .box .price
 {
     border-top: var(--border) ;
   width: 100%;
@@ -486,14 +531,14 @@ ul.catName li a{
   justify-content: space-between;
 
 }
-.box .price span
+.products .box .price span
 {
     color: var(--sec-color);
     display: block;
     font-size: 16px;
 }
 
-.box  .btns
+.products .box  .btns
 {
   width: 100%;
   margin: auto;
@@ -568,6 +613,160 @@ ul.catName li a{
 }
 
 
+
+
+
+
+/* --------------about---------------- */
+
+
+
+.aboutus{
+    font-family: 'Courier New', Courier !important;
+}
+.about
+{
+    position: relative;
+    font-size: 50px;
+}
+.about::before
+{
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 6px;
+    background-color: var(--sec-color);
+}
+.aboutus p
+{
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.aboutus p span
+{
+    font-weight: bold;
+    color: var(--sec-color);
+    padding: 0 5px;
+}
+
+
+
+
+/* --------------Contact---------------- */
+/*
+.contact
+{
+    width: 80%;
+    margin: auto;
+} */
+
+.form
+{
+    width: 60%;
+    margin: auto;
+        box-shadow: 2px 4px 20px #d3857875;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 3% auto;
+}
+.contact form
+{
+    width: 100%;
+    margin: auto;
+}
+.contactfildes{
+    /* background-color: #E0988C; */
+    border: var(--border);
+    color: var(--main-color);
+    padding: 10px ;
+    margin:  auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.contactfildes input,
+.contactfildes textarea
+{
+    width: 75%;
+    background-color: transparent;
+    border:none;
+    color: var(--main-color);
+    margin-left: 5px;
+
+}
+.contactfildes input:focus,
+.contactfildes textarea:focus
+{
+    outline: none;
+    border: none;
+}
+.submit
+{
+    color: var(--main-color);
+    /* padding: 10px ; */
+    margin:  5px;
+}
+.submit input{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    background-color: #64413D;
+}
+.contactfildes label
+{
+    width: 20%;
+    color: var(--main-color);
+    /* padding: 0 50px 0 0; */
+
+}
+@media (max-width: 797px) {
+  /* .b */
+    .form
+    {
+        width: 95%;
+        margin: 20px auto;
+    }
+    .contactfildes label
+    {
+        width: 100%;
+        color: var(--main-color);
+    }
+}
+
+/* For medium devices */
+@media only screen and (max-width: 1100px) {
+
+}
+
+
+/* For small devices */
+@media only screen and (max-width: 900px) {
+
+}
+
+
+
+/* For large devices */
+@media only screen and (max-width: 1320px) {
+
+}
+
+/* For medium devices */
+@media only screen and (max-width: 1100px) {
+
+}
+
+
+/* For small devices */
+@media only screen and (max-width: 900px) {
+
+}
+
+
+
+/* --------------cart---------------- */
+
 .cart{
     display:inline-block;
     padding: 0 10px;
@@ -580,6 +779,195 @@ ul.catName li a{
     border: none;
     font-size: 25px;
 }
+
+
+
+/* --------------Product---------------- */
+
+.single_product .images .image1 img
+{
+    border-radius: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+.single_product .images .sm_imgs ul{
+    margin-top: 30px;
+    padding-left: 0;
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+.single_product .images .sm_imgs li {
+    flex: 1;
+}
+.single_product .images .sm_imgs li img{
+    width: 100% ;
+    height: 100%;
+    border-radius: 5%;
+}
+
+.single_product h6{
+    color: var(--sec-color);
+}
+.single_product h1{
+    font-size: 3.5rem;
+}
+.single_product .price{
+    font-size: 3rem;
+}
+.single_product  .addtocart
+{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* --------------Blog---------------- */
+.landsection
+{
+    background-color: #302A29;
+    padding: 150px  100px 100px 100px;
+}
+.landsection h1
+{
+    font-size: 3.5rem;
+}
+.landsection p
+{
+    width: 50%;
+    margin: auto;
+}
+@media only screen and (max-width: 767px) {
+    .landsection
+    {
+        background-color: #302A29;
+        padding: 100px 20px ;
+    }
+    .landsection h1
+    {
+        font-size: 2.5rem;
+    }
+    .landsection p
+    {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+
+
+/* --------------blogs---------------- */
+
+.blogs .left-boxs
+{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.blogs .left-boxs .box
+{
+
+    height: 100px;
+    width: 100%;
+}
+.blogs .left-boxs .box img
+{
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+.blogs .left-boxs .box .details
+{
+    flex: 3;
+    padding: 10px 5px 0 20px;
+}
+.blogs .left-boxs .box .details p
+{
+    font-size: 13px;
+    margin: 0;
+}
+.blogs .left-boxs .box .details a
+{
+    font-size: 13px;
+}
+.blogs .left-boxs .box .details a i
+{
+    transition: .5s;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+.blogs .left-boxs .box .details a:hover i{
+    transform: translate(10px,0);
+}
+
+
+.blogs .right-boxs .box
+{
+    box-shadow:-1px -3px 20px 0 #291918ad;
+    margin: 5px;
+    padding: 15px  ;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #120e0ed8;
+}
+.blogs .right-boxs .box img{
+    width: 100%;
+    height: max-content;
+}
+.blogs .right-boxs .box .cat
+{
+    margin: 10px 5px;
+    color: var(--sec-color);
+    text-transform: uppercase;
+}
+.blogs .right-boxs .box .title
+{
+    margin: 10px 5px;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+.blogs .right-boxs .box p{
+    margin: 10px 5px;
+    font-size: 14px;
+}
+.blogs .right-boxs .box .data
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.blogs .right-boxs .box .date{
+    font-size: 14px;
+}
+.blogs .right-boxs .box .like i
+{
+    color: #fff;
+    font-size: 20px;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+.blogs .right-boxs .box .like i:hover
+{
+    color: var(--sec-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --------------footer---------------- */
+
+
 
 
 .footer
